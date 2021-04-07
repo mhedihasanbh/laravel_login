@@ -18,6 +18,63 @@ Route::get('/',[
     'as'=>'Home',
     'middleware'=>['login']
 ]);
+/*---  Category Route Start *----*/
+Route::get('/manage-category',[
+    'uses'=>'App\Http\Controllers\CategoryController@index',
+    'as'=>'manage-category',
+    'middleware'=>['auth:sanctum', 'verified']
+
+]);
+Route::post('/new-category',[
+    'uses'=>'App\Http\Controllers\CategoryController@create',
+    'as'=>'new-category',
+    'middleware'=>['auth:sanctum', 'verified']
+
+]);
+Route::get('/update-category-status/{id}',[
+    'uses'=>'App\Http\Controllers\CategoryController@updateStatus',
+    'as'=>'update-category-status',
+    'middleware'=>['auth:sanctum', 'verified']
+
+]);
+Route::get('/edit-category/{id}',[
+    'uses'=>'App\Http\Controllers\CategoryController@categoryEdit',
+    'as'=>'edit-category',
+    'middleware'=>['auth:sanctum', 'verified']
+
+]);
+Route::post('/update-category',[
+    'uses'=>'App\Http\Controllers\CategoryController@categoryupdate',
+    'as'=>'update-category',
+    'middleware'=>['auth:sanctum', 'verified']
+
+]);
+Route::post('/update-category',[
+    'uses'=>'App\Http\Controllers\CategoryController@categoryupdate',
+    'as'=>'update-category',
+    'middleware'=>['auth:sanctum', 'verified']
+
+]);
+Route::get('/delete-category/{id}',[
+    'uses'=>'App\Http\Controllers\CategoryController@categoryDelete',
+    'as'=>'delete-category',
+    'middleware'=>['auth:sanctum', 'verified']
+
+]);
+
+
+
+
+
+
+
+
+
+/*---  Category Route End *----*/
+
+
+
+
 
 Route::get('/dashboard',[
     'uses'=>'App\Http\Controllers\DashboardController@index',

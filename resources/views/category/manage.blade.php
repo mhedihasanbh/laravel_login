@@ -122,7 +122,13 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$categorie->CatName}}</td>
                             <td>{{$categorie->catDescraption}}</td>
-                            <td><img src="{{asset($categorie->catImage)}}" height="60" width="90"></td>
+                            <td>
+                                @if($categorie->catImage)
+                                <img src="{{asset($categorie->catImage)}}" height="60" width="90">
+                                @else
+                                    <img src="{{asset('/dumy.png')}}" height="60" width="90">
+                                @endif
+                            </td>
                             <td>{{$categorie->catStatus == 1 ? 'published':'Unplulished'}}</td>
                             <td>
                                 @if($categorie->catStatus==1)

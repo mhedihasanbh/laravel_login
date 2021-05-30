@@ -38,13 +38,14 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="crypto-wallet.html">Manage Company</a></li>
                         <li><a href="{{route('manage-category')}}">Manage Category</a></li>
-                        <li><a href="crypto-exchange.html">Manage sub Category</a></li>
-                        <li><a href="crypto-lending.html">Manage Brand</a></li>
-                        <li><a href="crypto-orders.html">Manage Unit</a></li>
-                        <li><a href="crypto-kyc-application.html">Manage Color</a></li>
-                        <li><a href="crypto-ico-landing.html">Manage Size</a></li>
+                        <li><a href="{{route('manage-sub-category')}}">Manage sub Category</a></li>
+                        <li><a href="{{route('manage-brand')}}">Manage Brand</a></li>
+                        <li><a href="{{route('manage-unit')}}">Manage Unit</a></li>
+                        <li><a href="{{route('color.index')}}">Manage Color</a></li>
+                        <li><a href="{{route('size.index')}}">Manage Size</a></li>
                     </ul>
                 </li>
+
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -63,8 +64,8 @@
                         <span>Product Module</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="invoices-list.html">New product</a></li>
-                        <li><a href="invoices-detail.html">Manage Product</a></li>
+                        <li><a href="{{route('add-product')}}">New product</a></li>
+                        <li><a href="{{route('manage-product')}}">Manage Product</a></li>
                     </ul>
                 </li>
 

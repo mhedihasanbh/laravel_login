@@ -14,13 +14,14 @@
 
     <!-- Responsive datatable examples -->
     <link href="{{(asset('/'))}}assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
+    <!-- Summernote css -->
+    <link href="{{(asset('/'))}}assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css" />
     <!-- Bootstrap Css -->
-    <link href="{{asset('/')}}assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="{{asset('/')}}assets/css/bootstrap.min.css"  rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{asset('/')}}assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{asset('/')}}assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="{{asset('/')}}assets/css/app.min.css"  rel="stylesheet" type="text/css" />
     @yield('head')
 </head>
 
@@ -212,7 +213,26 @@
 <script src="{{asset('/')}}assets/libs/metismenu/metisMenu.min.js"></script>
 <script src="{{asset('/')}}assets/libs/simplebar/simplebar.min.js"></script>
 <script src="{{asset('/')}}assets/libs/node-waves/waves.min.js"></script>
+<script src="{{asset('/')}}assets/libs/select2/js/select2.min.js"></script>
+<script src="{{asset('/')}}assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="{{asset('/')}}assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script src="{{asset('/')}}assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script src="{{asset('/')}}assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+<script src="{{asset('/')}}assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script src="{{asset('/')}}assets/libs/%40chenfengyuan/datepicker/datepicker.min.js"></script>
 
+<!-- form advanced init -->
+<script src="{{asset('/')}}assets/js/pages/form-advanced.init.js"></script>
+<!-- Summernote js -->
+<script src="{{asset('/')}}assets/libs/summernote/summernote-bs4.min.js"></script>
+<link href="{{asset('/')}}assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('/')}}assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
+<link href="{{asset('/')}}assets/libs/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css">
+<link href="{{asset('/')}}assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+<link href="{{asset('/')}}assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="assets/libs/%40chenfengyuan/datepicker/datepicker.min.css">
+<!-- init js -->
+<script src="{{asset('/')}}assets/js/pages/form-editor.init.js"></script>
 <!-- apexcharts -->
 <script src="{{asset('/')}}assets/libs/apexcharts/apexcharts.min.js"></script>
 
@@ -241,6 +261,33 @@
 
 <!-- App js -->
 <script src="{{asset('/')}}assets/js/app.js"></script>
+<script>
+    function getSubcategoryInfo(categoryId){
+        $.ajax({
+            type:'GET',
+            url:"{{url('get-sub-category-by-category-id')}}",
+            data:{id:categoryId},
+            dataType:'json',
+            success:function(res){
+             var subCategoryId=$('#subCategoryId');
+                subCategoryId.empty();
+
+             var option='';
+                option+='<option>------Select Subcategory name------</option>';
+                $.each(res,function(key,value){
+                    option+='<option value="'+value.id+'">'+value.cat_name+'</option>';
+
+                })
+                subCategoryId.append( option);
+
+            },
+            error:function(err){
+                console.log(err);
+            }
+
+        });
+    }
+</script>
 </body>
 
 
